@@ -71,7 +71,7 @@ app.put("/vendas/:id", async (req, res) => {
 app.delete("/vendas/:id", async (req, res) => {
   try {
     const vendaMensalDeletada = await VendaMensal.findByIdAndDelete(
-      req.params.id
+      // req.params.id
     );
     res.json(vendaMensalDeletada);
   } catch (error) {
