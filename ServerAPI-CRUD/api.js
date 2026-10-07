@@ -43,4 +43,42 @@ app.post('/vendas', async (req, res) => {
 
 });
 
+
+//READ
+app.get('/vendas', async (req, res) => {
+    try {
+        const vendasMensais = await VendaMensal.find();
+        res.json(vendasMensais);
+    } catch (error) {
+        res.json({ error: error });
+    }
+})
+
+// UPDATE
+app.put("/vendas/:id", async (req, res) => {
+  try {
+    const vendaMensalAtualizada = await VendaMensal.findByIdAndUpdate(
+      req.params.id,
+      req.body
+    );
+    res.json(vendaMensalAtualizada);
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
+
+// DELETE
+app.delete("/vendas/:id", async (req, res) => {
+  try {
+    const vendaMensalDeletada = await VendaMensal.findByIdAndDelete(
+      req.params.id
+    );
+    res.json(vendaMensalDeletada);
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
+
+
+
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
