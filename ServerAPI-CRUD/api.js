@@ -56,27 +56,27 @@ app.get('/vendas', async (req, res) => {
 
 // UPDATE
 app.put("/vendas/:id", async (req, res) => {
-  try {
-    const vendaMensalAtualizada = await VendaMensal.findByIdAndUpdate(
-      req.params.id,
-      req.body
-    );
-    res.json(vendaMensalAtualizada);
-  } catch (error) {
-    res.json({ error: error.message });
-  }
+    try {
+        const vendaMensalAtualizada = await VendaMensal.findByIdAndUpdate(
+            req.params.id,
+            req.body
+        );
+        res.json(vendaMensalAtualizada);
+    } catch (error) {
+        res.json({ error: error.message });
+    }
 });
 
 // DELETE
 app.delete("/vendas/:id", async (req, res) => {
-  try {
-    const vendaMensalDeletada = await VendaMensal.findByIdAndDelete(
-      // req.params.id
-    );
-    res.json(vendaMensalDeletada);
-  } catch (error) {
-    res.json({ error: error.message });
-  }
+    try {
+        const vendaMensalDeletada = await VendaMensal.findByIdAndDelete(
+            // req.params.id
+        );
+        res.json(vendaMensalDeletada);
+    } catch (error) {
+        res.json({ error: error.message });
+    }
 });
 
 
